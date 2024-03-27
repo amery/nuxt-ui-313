@@ -24,12 +24,12 @@ const { data, pending, refresh } = await useFetch<products>('https://dummyjson.c
 const links = [{
 	label: 'refresh',
 	click: refresh,
-	loading: pending,
+	loading: pending.value,
 	icon: 'i-material-symbols-refresh',
 	variant: 'ghost',
 }, {
 	icon: 'i-material-symbols-download',
-	disabled: pending,
+	disabled: pending.value,
 	click: () => { alert("save") },
 }]
 </script>
