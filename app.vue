@@ -11,7 +11,10 @@
 </template>
 
 <script setup lang="ts">
-interface product {}
+interface product {
+  id: number;
+  title: string;
+}
 interface products {
 	products: product[];
 }
