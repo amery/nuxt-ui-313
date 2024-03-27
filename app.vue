@@ -21,12 +21,15 @@ interface products {
 
 const title = ref("title")
 const columns = [{key: 'id'}, {key: 'title'}]
+const delayMS = 1000
 
-const { data, pending, refresh } = await useFetch<products>('https://dummyjson.com/products')
+const { data, pending, refresh } = await useFetch<products>(`https://dummyjson.com/products?delay=${delayMS}`)
 
 const links = [{
 	label: 'refresh',
-	click: refresh,
+	click: () => {
+    console.log('refreshing');
+    refresh(); },
 	loading: pending.value,
 	icon: 'i-material-symbols-refresh',
 	variant: 'ghost',
